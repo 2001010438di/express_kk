@@ -6,8 +6,10 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-//  helloRouter 追加
+//  helloRouter 追加 【5-2】
 var helloRouter = require('./routes/hello');
+//  notesRouter 追加 【6-3】
+var notesRouter = require('./routes/notes');
 var app = express();
 
 // view engine setup
@@ -22,8 +24,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-//  helloRouter 追加
+//  helloRouter 追加 【5-2】
 app.use('/hello', helloRouter);
+//  notesRouter 追加 【6-3】
+app.use('/notes', notesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
