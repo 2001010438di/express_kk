@@ -1,4 +1,28 @@
+var express = require('express');
+var router = express.Router();
+
+/* 【8-1 notes.jsの追加によるファイル更新】*/
+// 接続情報を設定
+const { MongoClient } = require("mongodb");
+const uri = "***";
+const client = new MongoClient(uri);
+
+router.get('/', async (req, res) => {
+// データベース、コレクションを指定
+const database = client.db('notes');
+const notes = database.collection('notes');
+
+// idが１のドキュメントを取得
+const query = { id: 2 };
+const note = await notes.findOne(query);
+
+res.json(note);
+})
+
+module.exports = router;
+
 /* 【6-3 notes.jsの追加によるファイル更新及びGIT HUB更新、POSTMAN動作確認】*/
+/*
 var express = require('express');
 var router = express.Router();
 
@@ -17,17 +41,17 @@ const responseObjectDataAll = {
 	bodyText: 'ノート２の本文です'
 	},
 };
-
- /**
+ 
  * メモを全件取得するAPI
  * @returns {Object[]} data
  * @returns {number} data.id - ID
  * @returns {string} data.title - タイトル
 * @returns {string} data.text - 内容
-*/
+
  router.get('/', function (req, res, next) {
  // 全件取得して返す
   res.json(responseObjectDataAll);
  })
-
+ 
 module.exports = router;
+:*/
