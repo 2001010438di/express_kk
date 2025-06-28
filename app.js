@@ -12,6 +12,9 @@ var helloRouter = require('./routes/hello');
 var notesRouter = require('./routes/notes');
 //  catRouter 追加 【8-4】
 var catRouter = require('./routes/cat');
+//   第8回レポート 追加 【8-4】
+var yesnoRouter = require('./routes/yesno');
+
 var app = express();
 
 // view engine setup
@@ -32,6 +35,9 @@ app.use('/hello', helloRouter);
 app.use('/notes', notesRouter);
 //  catRouter 追加 【8-4】
 app.use('/cat', catRouter);
+//  第8回レポート 追加 【8-4】
+app.use('/yesno', yesnoRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
