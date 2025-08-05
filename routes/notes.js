@@ -1,11 +1,12 @@
+require('dotenv').config(); // dotenvミドルウェアを追加 【15-4】
 var express = require('express');
 var router = express.Router();
 const cors = require('cors'); // corsミドルウェアを追加 【15-4】
-require('dotenv').config(); // dotenvミドルウェアを追加 【15-4】
+//require('dotenv').config(); // dotenvミドルウェアを追加 【15-4】
 
 /* 【8-1 notes.jsの追加によるファイル更新】*/
 // 接続情報を設定
-const { MongoClient } = require("mongodb");
+const { MongoClient } = require('mongodb');
 const uri = process.env.MONGODB_URI; // url情報をenvへ変更 【15-4】
 const client = new MongoClient(uri);
 
