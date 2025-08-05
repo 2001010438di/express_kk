@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+require('dotenv').config();//追加20250805
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 //  helloRouter 追加 【5-2】
@@ -14,6 +16,8 @@ var notesRouter = require('./routes/notes');
 var catRouter = require('./routes/cat');
 //   第8回レポート 追加 【8-4】
 var yesnoRouter = require('./routes/yesno');
+//   notes_from_b 追加 【14-4】
+var notes_from_bRouter = require('./routes/notes_from_b');
 
 var app = express();
 
@@ -37,6 +41,8 @@ app.use('/notes', notesRouter);
 app.use('/cat', catRouter);
 //  第8回レポート 追加 【8-4】
 app.use('/yesno', yesnoRouter);
+//  notes_from_b 追加 【14-4】
+app.use('/notes_from_b', notes_from_bRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
